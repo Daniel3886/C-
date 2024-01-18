@@ -25,13 +25,13 @@ int main() {
     }
 
     // Obliczanie średnich arytmetycznych wierszy
-    int srednie[rows];
+    double srednie[rows];
     for (int i = 0; i < rows; ++i) {
         int suma = 0;
         for (int j = 0; j < cols; ++j) {
             suma += macierz[i][j];
         }
-        srednie[i] = suma / cols;
+        srednie[i] = static_cast<double>(suma) / cols;
     }
 
     // Wyszukiwanie elementu maksymalnego i minimalnego
