@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main() {
+    const int size = 8;
+    int A[size];
+
+    int Lwieksze = 0, Lrowne = 0, Lmniejsze = 0;
+
+    // Wczytywanie danych do tablicy
+    for (int i = 0; i < size; ++i) {
+        std::cout << "podaj A[" << i << "]=";
+        std::cin >> A[i];
+    }
+
+    // Zliczanie wyrazów
+    for (int i = 0; i < size; ++i) {
+        if (A[i] > 0) {
+            Lwieksze++;
+        } else if (A[i] == 0) {
+            Lrowne++;
+        } else {
+            Lmniejsze++;
+        }
+    }
+
+    // Wyświetlanie wyników
+    std::cout << "liczba wyrazów ciągu które są większe od zera wynosi " << Lwieksze << std::endl;
+    std::cout << "liczba wyrazów ciągu które są równe zero wynosi " << Lrowne << std::endl;
+    std::cout << "liczba wyrazów ciągu które są mniejsze od zera wynosi " << Lmniejsze << std::endl;
+
+    return 0;
+}
