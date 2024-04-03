@@ -1,34 +1,34 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    system("chcp 1250");
-
-    int IloscZmian = 0;
-    int a[10];
     int n;
+    int a[10];
 
-    cout << "PamiÍtaj, øe iloúÊ podanych elementÛw tablicy a[] nie przekroczy 10!" << endl;
-    cout << "Podaj iloúÊ elementÛw tablicy a: ";
-    
-    cin >> n;
+    do {
+        cout << "Podaj ilosc elementow tablicy a: ";
+        cin >> n;
 
-    if (n > 10) {
-        cout << "IloúÊ elementÛw tablicy a[] nie powinna przekroczyÊ 10!" << endl;
-        return 1;
+        if (n > 10) {
+            cout << "Ilosc elementow nie moze przekroczyc 10!" << endl;
+        }
+    } while (n > 10);
+
+    // Wczytywanie element√≥w tablicy
+    for (int i = 0; i < n; ++i) {
+        cout << "Podaj a[" << i << "] = ";
+        cin >> a[i];
     }
 
-    for (int i = 0; i < n; i++) {
-        cout << "Podaj a[" << i << "]: ";
-        cin >> a[i];
-
-        if (i > 0 && ((a[i - 1] > 0 && a[i] < 0) || (a[i - 1] < 0 && a[i] > 0))) {
-            IloscZmian += 1;
+    // Liczenie ilo≈õci zmian znak√≥w
+    int zmiany = 0;
+    for (int i = 0; i < n - 1; ++i) {
+        if ((a[i] < 0 && a[i+1] >= 0) || (a[i] >= 0 && a[i+1] < 0)) {
+            zmiany++;
         }
     }
 
-    cout << "IloúÊ zmian znakÛw: " << IloscZmian << endl;
+    cout << "Ilosc zmian znakow: " << zmiany << endl;
 
     return 0;
 }
